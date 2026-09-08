@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: `Portfolio Contact <${from}>`,
       to,
-      replyTo: email,
+
       subject: `New message from ${name}`,
       text: `From: ${name} <${email}>\n\n${message}`,
     });
