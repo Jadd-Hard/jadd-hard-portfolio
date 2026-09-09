@@ -93,11 +93,8 @@ export const profile = {
   },
   heroHeadline: "Twenty-two years running the show and designing everything around it.",
   aboutTeaser:
-    "I’M NOT REALLY A “ONE THING” PERSON.
-I design. I build. I produce. I engineer. I create. For over two decades, I’ve moved between design studios, stages, venues, control rooms, production floors and creative projects, often occupying several roles at once.
-That’s shaped the way I work: think creatively, understand the technology, solve the problem and get the job done.
-
-I’m Jadd Steinhard. Welcome to my work.",
+    "I’M NOT REALLY A “ONE THING” PERSON.I design. I build. I produce. I engineer. I create. For over two decades, I’ve moved between design studios, stages, venues, control rooms, production floors and creative projects, often occupying several roles at once.
+That’s shaped the way I work: think creatively, understand the technology, solve the problem and get the job done.I’m Jadd Steinhard. Welcome to my work.",
   aboutFull: [
     "I am a multidisciplinary creative-production professional who works at the intersection of design, multimedia and live event delivery. My background spans more than two decades across advertising, touring, festivals, luxury hospitality, brand activations and independent productions. That breadth means I understand not only how to create compelling visual and multimedia work, but also how it needs to function in the real world, on screens, on stage, in venues, in campaigns and under live production pressure. I bring hands-on capability in graphic design, video and motion, live visuals, sound, lighting and AV, combined with event management, supplier coordination, artist liaison and production planning.",
   ],
