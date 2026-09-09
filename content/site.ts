@@ -102,8 +102,7 @@ That’s shaped the way I work: think creatively, understand the technology, sol
 I’m Jadd Steinhard. Welcome to my work.
 `,
 aboutFull: [
-  aboutFull: [
-    "I am a multidisciplinary creative-production professional who works at the intersection of design, multimedia and live event delivery. My background spans more than two decades across advertising, touring, festivals, luxury hospitality, brand activations and independent productions. That breadth means I understand not only how to create compelling visual and multimedia work, but also how it needs to function in the real world, on screens, on stage, in venues, in campaigns and under live production pressure. I bring hands-on capability in graphic design, video and motion, live visuals, sound, lighting and AV, combined with event management, supplier coordination, artist liaison and production planning.",
+"I am a multidisciplinary creative-production professional who works at the intersection of design, multimedia and live event delivery. My background spans more than two decades across advertising, touring, festivals, luxury hospitality, brand activations and independent productions. That breadth means I understand not only how to create compelling visual and multimedia work, but also how it needs to function in the real world, on screens, on stage, in venues, in campaigns and under live production pressure. I bring hands-on capability in graphic design, video and motion, live visuals, sound, lighting and AV, combined with event management, supplier coordination, artist liaison and production planning.",
   ],
   cvUrl: "/resume.pdf",
   skills: [
