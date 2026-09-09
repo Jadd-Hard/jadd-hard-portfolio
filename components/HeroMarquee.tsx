@@ -37,7 +37,7 @@ function MarqueeRow({ words, direction, tone, speed }: MarqueeRowProps) {
 export default function HeroMarquee({ rows }: { rows: string[][] }) {
   const directions: Array<"left" | "right"> = ["left", "right", "left"];
   const tones: Array<"paper" | "amber"> = ["paper", "amber", "paper"];
-  const speeds = [38, 46, 32];
+  const speeds = [100, 120, 85];
 
   return (
     <div aria-hidden="true" className="flex select-none flex-col gap-1 md:gap-2">
