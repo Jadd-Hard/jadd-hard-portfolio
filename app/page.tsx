@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { profile, projects } from "@/content/site";
+import { profile, projects, marqueeWords } from "@/content/site";
 import RoleRotator from "@/components/RoleRotator";
 import StatusRow from "@/components/StatusRow";
 import ProjectCard from "@/components/ProjectCard";
+import HeroMarquee from "@/components/HeroMarquee";
+import HeroPortrait from "@/components/HeroPortrait";
 
 export default function HomePage() {
   const featured = projects.filter((p) => p.featured);
@@ -11,26 +13,21 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="container-page grid gap-10 pb-20 pt-10 md:grid-cols-[1.4fr,1fr] md:pt-16">
-        <div className="flex flex-col justify-between gap-10">
-          <div>
-            <RoleRotator roles={profile.role} />
-            <h1 className="mt-6 font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-tightest md:text-[5.2vw]">
-              {profile.heroHeadline}
-            </h1>
-          </div>
-          <StatusRow />
+      <section className="border-b border-line pb-16 pt-10 md:pt-16">
+        <div className="container-page">
+          <RoleRotator roles={profile.role} />
         </div>
 
-        <div className="relative aspect-[4/5] w-full overflow-hidden bg-line md:aspect-auto">
-          <Image
-            src="/portrait.png"
-            alt={profile.name}
-            fill
-            priority
-            sizes="(min-width: 768px) 40vw, 100vw"
-            className="object-cover"
-          />
+        <div className="relative my-8 md:my-12">
+          <HeroMarquee rows={marqueeWords} />
+          <HeroPortrait name={profile.name} />
+        </div>
+
+        <div className="container-page flex flex-col gap-10">
+          <h1 className="font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-tightest md:text-[5.2vw]">
+            {profile.heroHeadline}
+          </h1>
+          <StatusRow />
         </div>
       </section>
 
