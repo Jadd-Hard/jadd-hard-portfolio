@@ -55,9 +55,11 @@ export default function AboutPage() {
         <h2 className="mb-10 font-display text-4xl uppercase tracking-tightest md:text-6xl">What I do</h2>
 
         <div>
-          {profile.skills.map((skill, i) => (
-            <SkillBar key={skill.name} name={skill.name} level={skill.level} index={i} />
-          ))}
+          {profile.skills.map((skill, i) => {
+            const level = "level" in skill ? Number(skill.level) : 0;
+
+            return <SkillBar key={skill.name} name={skill.name} level={level} index={i} />;
+          })}
         </div>
       </section>
     </>
