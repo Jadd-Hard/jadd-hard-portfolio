@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Work_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Anton, Oswald, Work_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/content/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GridLines from "@/components/GridLines";
 
-const display = Space_Grotesk({
+const display = Anton({
   subsets: ["latin"],
-  weight: ["500", "700"],
+  weight: "400",
   variable: "--font-display",
+});
+
+const accent = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-accent",
 });
 
 const body = Work_Sans({
@@ -39,11 +46,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${accent.variable} ${body.variable} ${mono.variable}`}>
       <body className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <GridLines />
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
