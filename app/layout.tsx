@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CustomCursor from "@/components/CustomCursor";
 import { Anton, Oswald, Work_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/content/site";
@@ -54,7 +55,10 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
-      </body>
+      <      <body className="flex min-h-screen flex-col">
+        <GridLines />
+        <CustomCursor />
+        <div className="relative z-10 flex min-h-screen flex-col">>
     </html>
   );
 }
