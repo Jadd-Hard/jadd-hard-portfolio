@@ -67,7 +67,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
       <section className="container-page flex items-center justify-between border-t border-line py-12">
         <p className="eyebrow">Next project</p>
-        <Link href={`/work/${next.slug}`} className="font-display text-3xl uppercase tracking-tightest hover:text-brass md:text-5xl">
+        <Link href={`/work/${next.slug}`} className="font-display text-3xl uppercase tracking-tightest hover:text-amber md:text-5xl">
           {next.title} →
         </Link>
       </section>

@@ -39,21 +39,21 @@ export default function ContactForm() {
         required
         name="name"
         placeholder="Your name"
-        className="border-b border-line bg-transparent py-2 font-body text-sm text-paper outline-none placeholder:text-graphite focus:border-brass"
+        className="border-b border-line bg-transparent py-2 font-body text-sm text-paper outline-none placeholder:text-graphite focus:border-amber"
       />
       <input
         required
         type="email"
         name="email"
         placeholder="Your email"
-        className="border-b border-line bg-transparent py-2 font-body text-sm text-paper outline-none placeholder:text-graphite focus:border-brass"
+        className="border-b border-line bg-transparent py-2 font-body text-sm text-paper outline-none placeholder:text-graphite focus:border-amber"
       />
       <textarea
         required
         name="message"
         rows={3}
         placeholder="What are you working on?"
-        className="resize-none border-b border-line bg-transparent py-2 font-body text-sm text-paper outline-none placeholder:text-graphite focus:border-brass"
+        className="resize-none border-b border-line bg-transparent py-2 font-body text-sm text-paper outline-none placeholder:text-graphite focus:border-amber"
       />
       <button
         type="submit"

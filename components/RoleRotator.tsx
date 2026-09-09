@@ -22,7 +22,7 @@ export default function RoleRotator({ roles }: { roles: string[] }) {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -24, opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.65, 0, 0.35, 1] }}
-          className="absolute left-0 top-0 font-mono text-[11px] uppercase tracking-wide2 text-brass"
+          className="absolute left-0 top-0 font-mono text-[11px] uppercase tracking-wide2 text-amber"
         >
           {roles[index]}
         </motion.span>

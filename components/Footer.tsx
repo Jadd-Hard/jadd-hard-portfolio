@@ -15,7 +15,7 @@ export default function Footer() {
             <p className="eyebrow mb-3">Connect</p>
             <a
               href={`mailto:${profile.email}`}
-              className="font-display text-2xl uppercase tracking-tightest text-paper underline decoration-brass decoration-2 underline-offset-4 md:text-3xl"
+              className="font-display text-2xl uppercase tracking-tightest text-paper underline decoration-amber decoration-2 underline-offset-4 md:text-3xl"
             >
               {profile.email}
             </a>

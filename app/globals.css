@@ -16,7 +16,7 @@
   }
 
   ::selection {
-    @apply bg-brass text-ink;
+    @apply bg-amber text-ink;
   }
 }
 

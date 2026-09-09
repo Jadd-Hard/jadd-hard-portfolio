@@ -18,7 +18,7 @@ export default function Header() {
     <header className="container-page sticky top-0 z-50 flex items-center justify-between bg-ink/90 py-6 backdrop-blur">
       <Link href="/" className="font-display text-sm font-medium uppercase tracking-wide2">
         {profile.shortName}
-        <span className="text-brass">.</span>
+        <span className="text-amber">.</span>
       </Link>
 
       <nav className="hidden items-center gap-6 md:flex">

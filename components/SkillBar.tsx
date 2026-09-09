@@ -9,7 +9,7 @@ export default function SkillBar({ name, level, index }: { name: string; level: 
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="group flex items-center justify-between border-b border-line py-6 transition-colors hover:border-brass"
+      className="group flex items-center justify-between border-b border-line py-6 transition-colors hover:border-amber"
     >
       <div className="flex items-baseline gap-4">
         <span className="font-mono text-[11px] text-graphite">{String(index + 1).padStart(2, "0")}</span>
@@ -25,7 +25,7 @@ export default function SkillBar({ name, level, index }: { name: string; level: 
             <span
               key={i}
               className={`h-1.5 w-4 rounded-full transition-colors duration-300 ${
-                i < level ? (hover ? "bg-brass" : "bg-paper/70") : "bg-line"
+                i < level ? (hover ? "bg-amber" : "bg-paper/70") : "bg-line"
               }`}
             />
           ))}
