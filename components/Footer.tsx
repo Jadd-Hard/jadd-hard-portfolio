@@ -48,10 +48,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 flex flex-col gap-3 border-t border-line py-8 text-graphite md:flex-row md:items-center md:justify-between">
-          <p className="font-mono text-[11px] uppercase tracking-wide2">
+          <p className="font-accent text-[11px] uppercase tracking-wide2">
             © {new Date().getFullYear()} {profile.name}
           </p>
-          <p className="font-mono text-[11px] uppercase tracking-wide2">{profile.footerNote}</p>
+          <p className="font-accent text-[11px] uppercase tracking-wide2">{profile.footerNote}</p>
         </div>
       </div>
     </footer>

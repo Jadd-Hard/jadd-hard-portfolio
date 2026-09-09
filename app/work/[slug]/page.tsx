@@ -36,7 +36,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
         <div className="mt-6 flex flex-wrap items-center gap-6">
           <p className="max-w-lg text-lg text-paper/90">{project.subtitle}</p>
-          <span className="font-mono text-[11px] uppercase tracking-wide2 text-graphite">{project.role}</span>
+          <span className="font-accent text-[11px] uppercase tracking-wide2 text-graphite">{project.role}</span>
           {project.liveUrl && (
             <a
               href={project.liveUrl}

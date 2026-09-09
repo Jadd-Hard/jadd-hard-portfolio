@@ -6,11 +6,11 @@ export default function StatusRow() {
     <div className="flex flex-wrap items-center gap-4">
       <span className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1">
         <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-        <span className="font-mono text-[11px] uppercase tracking-wide2 text-paper/80">
+        <span className="font-accent text-[11px] uppercase tracking-wide2 text-paper/80">
           Open to work
         </span>
       </span>
-      <span className="font-mono text-[11px] uppercase tracking-wide2 text-graphite">
+      <span className="font-accent text-[11px] uppercase tracking-wide2 text-graphite">
         Based in {profile.location} ·
       </span>
       <Clock />

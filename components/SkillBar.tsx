@@ -17,7 +17,7 @@ export default function SkillBar({ name, level, index }: { name: string; level: 
       </div>
 
       <div className="flex items-center gap-4">
-        <span className="hidden font-mono text-[11px] uppercase tracking-wide2 text-graphite md:inline">
+        <span className="hidden font-accent text-[11px] uppercase tracking-wide2 text-graphite md:inline">
           {hover ? `${level}/5` : "Hover"}
         </span>
         <div className="flex gap-1">

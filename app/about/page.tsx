@@ -40,7 +40,7 @@ export default function AboutPage() {
             ))}
           </div>
 
-          
+          <a
             href={profile.cvUrl}
             download
             className="w-fit border border-paper px-6 py-3 font-accent text-[11px] uppercase tracking-wide2 transition-colors hover:bg-paper hover:text-ink"

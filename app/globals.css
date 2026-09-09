@@ -22,11 +22,11 @@
 
 @layer utilities {
   .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-wide2 text-graphite;
+    @apply font-accent text-[11px] uppercase tracking-wide2 text-graphite;
   }
 
   .nav-link {
-    @apply font-mono text-[11px] uppercase tracking-wide2 text-paper/70 transition-colors hover:text-paper;
+    @apply font-accent text-[11px] uppercase tracking-wide2 text-paper/70 transition-colors hover:text-paper;
   }
 
   .container-page {
