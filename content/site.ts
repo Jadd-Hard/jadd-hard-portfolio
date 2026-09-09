@@ -37,7 +37,7 @@ export const projects: Project[] = [
     title: "Aurora",
     subtitle: "Generative light studies for a museum installation",
     coverImage: "/work/aurora/cover.jpg",
-    gallery: ["/work/aurora/cover.jpg"],
+    gallery: ["/work/aurora/02.png"],
     liveUrl: "https://example.com",
     year: "2026",
     role: "Art Direction, Motion",
