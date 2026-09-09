@@ -31,7 +31,7 @@ export default function HomePage() {
        {/* ABOUT TEASER */}
       <section className="container-page border-t border-line py-28 text-center md:py-36">
         <p className="eyebrow mb-6">About me</p>
-        <p className="mx-auto max-w-3xl font-display text-2xl uppercase leading-snug tracking-tightest md:text-4xl">
+        <p className="mx-auto max-w-3xl font-normal text-xl leading-relaxed tracking-normal md:text-2xl whitespace-pre-line">
           {profile.aboutTeaser}
         </p>
       </section>
