@@ -14,9 +14,9 @@
  */
 
 export const marqueeWords: string[][] = [
-  ["Event Mngmnt", "Graphics", "Design", "Motion"],
-  ["Illustration", "Digital", "Corporate", "Audio"],
-  ["Visual", "Tech", "Websites", "Engineer"],
+  ["Illustration", "Digital", "Design", "Motion", "Multimedia"],
+  ["Creative", "Audio", "Video", "Tech", "Events", "Production"],
+  ["Content", "Software", "Web", "Branding", "Editing", "Systems"],
 ];
 
 export type Project = {
