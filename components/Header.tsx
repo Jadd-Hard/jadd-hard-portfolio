@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { profile } from "@/content/site";
 
 const navItems = [
@@ -14,67 +15,119 @@ const navItems = [
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const socialLinks = [
+    { label: "Instagram", href: profile.socials.instagram },
+    { label: "Behance", href: profile.socials.behance },
+    { label: "LinkedIn", href: profile.socials.linkedin },
+  ].filter((s) => s.href);
+
   return (
-    <header className="container-page sticky top-0 z-50 flex items-center justify-between bg-ink/90 py-6 backdrop-blur">
+    <header className="container-page sticky top-0 z-50 flex items-center justify-between py-6">
       <Link href="/" className="font-display text-sm font-medium uppercase tracking-wide2">
         {profile.shortName}
         <span className="text-amber">.</span>
       </Link>
 
-      <nav className="hidden items-center gap-6 md:flex">
-        {navItems.map((item) => (
-          <Link key={item.href} href={item.href} className="nav-link">
-            <span className="text-graphite">{item.number}</span> {item.label}
-          </Link>
-        ))}
-      </nav>
-
-      <div className="hidden items-center gap-4 md:flex">
-        {profile.socials.instagram && (
-          <a href={profile.socials.instagram} className="nav-link" target="_blank" rel="noreferrer">
-            Instagram
-          </a>
-        )}
-        {profile.socials.linkedin && (
-          <a href={profile.socials.linkedin} className="nav-link" target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-        )}
-      </div>
-
       <button
-        aria-label="Toggle menu"
+        aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex flex-col gap-1.5 md:hidden"
+        className="relative z-[70] flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line bg-ink transition-colors hover:border-paper"
       >
-        <span className={`h-px w-6 bg-paper transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
-        <span className={`h-px w-6 bg-paper transition-opacity ${open ? "opacity-0" : ""}`} />
-        <span className={`h-px w-6 bg-paper transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+        <span className="relative flex h-3 w-4 flex-col justify-between">
+          <span
+            className={`h-px w-full bg-paper transition-transform duration-300 ${
+              open ? "translate-y-[5px] rotate-45" : ""
+            }`}
+          />
+          <span className={`h-px w-full bg-paper transition-opacity duration-300 ${open ? "opacity-0" : ""}`} />
+          <span
+            className={`h-px w-full bg-paper transition-transform duration-300 ${
+              open ? "-translate-y-[5px] -rotate-45" : ""
+            }`}
+          />
+        </span>
       </button>
 
-      {open && (
-        <div className="fixed inset-0 top-[73px] z-40 flex flex-col justify-between bg-ink p-8 md:hidden">
-          <nav className="flex flex-col gap-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="font-display text-3xl uppercase tracking-tightest"
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-[55] bg-ink/70 backdrop-blur-sm"
+            />
+            <motion.div
+              key="panel"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+              className="fixed inset-y-0 right-0 z-[60] flex w-full max-w-md flex-col justify-between bg-paper px-8 py-24 text-ink md:px-12"
+            >
+              <nav className="flex flex-col gap-1">
+                {navItems.map((item, i) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 + i * 0.06, duration: 0.4 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="group flex items-baseline gap-4 py-3"
+                    >
+                      <span className="font-mono text-xs text-graphite">{item.number}</span>
+                      <span className="font-display text-5xl uppercase tracking-tightest transition-colors group-hover:text-amber">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.4 }}
+                className="flex flex-wrap gap-6"
               >
-                <span className="mr-3 font-mono text-sm text-graphite">{item.number}</span>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="flex gap-6">
-            {profile.socials.instagram && <a href={profile.socials.instagram} className="nav-link">Instagram</a>}
-            {profile.socials.behance && <a href={profile.socials.behance} className="nav-link">Behance</a>}
-            {profile.socials.linkedin && <a href={profile.socials.linkedin} className="nav-link">LinkedIn</a>}
-          </div>
-        </div>
-      )}
+                {socialLinks.map((s) => (
+                  
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-accent text-[11px] uppercase tracking-wide2 text-graphite transition-colors hover:text-ink"
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
