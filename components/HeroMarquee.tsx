@@ -24,7 +24,7 @@ function MarqueeRow({ words, direction, tone, speed }: MarqueeRowProps) {
         {track.map((word, i) => (
           <span
             key={`${word}-${i}`}
-            className={`mx-4 shrink-0 whitespace-nowrap font-display text-[14vw] uppercase leading-none tracking-tightest md:mx-6 md:text-[6.5vw] ${colorClass}`}
+                        className={`mx-3 shrink-0 whitespace-nowrap font-display text-[17vw] uppercase leading-[0.85] tracking-tightest md:mx-5 md:text-[8vw] ${colorClass}`}
           >
             {word}
           </span>
@@ -40,7 +40,7 @@ export default function HeroMarquee({ rows }: { rows: string[][] }) {
   const speeds = [100, 120, 85];
 
   return (
-    <div aria-hidden="true" className="flex select-none flex-col gap-1 md:gap-2">
+        <div aria-hidden="true" className="flex select-none flex-col gap-0">
       {rows.map((words, i) => (
         <MarqueeRow
           key={i}

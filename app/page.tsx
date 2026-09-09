@@ -23,26 +23,21 @@ export default function HomePage() {
           <HeroPortrait name={profile.name} />
         </div>
 
-        <div className="container-page flex flex-col gap-10">
-          <h1 className="font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-tightest md:text-[5.2vw]">
-            {profile.heroHeadline}
-          </h1>
+        <div className="container-page flex flex-col items-center gap-10 text-center">
           <StatusRow />
         </div>
       </section>
 
-      {/* ABOUT TEASER */}
-      <section className="container-page border-t border-line py-20">
-        <div className="grid gap-8 md:grid-cols-[1fr,2fr]">
-          <p className="eyebrow">About me</p>
-          <p className="max-w-2xl font-display text-2xl uppercase leading-snug tracking-tightest md:text-4xl">
-            {profile.aboutTeaser}
-          </p>
-        </div>
+       {/* ABOUT TEASER */}
+      <section className="container-page border-t border-line py-28 text-center md:py-36">
+        <p className="font-accent mb-6 text-[11px] uppercase tracking-wide">About me</p>
+        <p className="mx-auto max-w-3xl font-normal text-xl leading-relaxed tracking-normal md:text-2xl whitespace-pre-line">
+          {profile.aboutTeaser}
+        </p>
       </section>
 
       {/* SELECTED PROJECTS */}
-      <section className="container-page border-t border-line py-20">
+            <section className="container-page border-t border-line py-28 md:py-36">
         <div className="mb-12 flex items-end justify-between">
           <div>
             <p className="eyebrow mb-3">Selected</p>
@@ -65,7 +60,7 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES */}
-      <section className="container-page border-t border-line py-20">
+            <section className="container-page border-t border-line py-28 md:py-36">
         <p className="eyebrow mb-3">Services</p>
         <h2 className="mb-12 font-display text-4xl uppercase tracking-tightest md:text-6xl">What I do</h2>
 
@@ -76,7 +71,7 @@ export default function HomePage() {
                 <Image src={service.image} alt={service.title} fill sizes="50vw" className="object-cover" />
               </div>
               <div>
-                <h3 className="font-display text-2xl uppercase tracking-tightest">{service.title}</h3>
+                <h3 className="font-accent text-xl font-medium uppercase tracking-wide2">{service.title}</h3>
                 <ul className="mt-3 flex flex-col gap-1 text-sm text-graphite">
                   {service.items.map((item) => (
                     <li key={item}>{item}</li>
@@ -88,5 +83,6 @@ export default function HomePage() {
         </div>
       </section>
     </>
+
   );
 }

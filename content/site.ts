@@ -14,9 +14,9 @@
  */
 
 export const marqueeWords: string[][] = [
-  ["Event Mngmnt", "Graphics", "Design", "Motion"],
-  ["Illustration", "Digital", "Corporate", "Audio"],
-  ["Visual", "Tech", "Websites", "Engineer"],
+  ["Illustration", "Digital", "Design", "Motion", "Multimedia"],
+  ["Creative", "Audio", "Video", "Tech", "Events", "Production"],
+  ["Content", "Software", "Web", "Branding", "Editing", "Systems"],
 ];
 
 export type Project = {
@@ -92,11 +92,17 @@ export const profile = {
     linkedin: "https://linkedin.com/in/jadd-steinhard",
   },
   heroHeadline: "Twenty-two years running the show and designing everything around it.",
-  aboutTeaser:
-    "I plan and run large-scale live events, and I design the brand campaigns, motion content, and visuals that go with them — one continuous practice, not two separate careers.",
-  aboutFull: [
-    "I started out in 1999 hand-illustrating tour and festival posters, before moving through the shift into digital design and motion graphics in the 2000s. Today that same design practice runs alongside a full-time career in live event production — most recently leading technical production for 200+ events a year across luxury resorts in the Maldives, Indonesia, China, and Malaysia.",
-    "Outside of that role, I run a production and creative studio handling 20+ live productions a year, and take on freelance multimedia design work for agencies and major brands. I'm equally comfortable at the mixing desk, the lighting console, or the design desk — and I've spent the last few years building AI-assisted workflows into both sides of that work to move faster without losing the craft.",
+aboutTeaser: `
+I’M NOT REALLY A “ONE THING” PERSON.
+
+I design. I build. I produce. I engineer. I create. For over two decades, I’ve moved between design studios, stages, venues, control rooms, production floors and creative projects.
+
+That’s shaped the way I work: think creatively, understand the technology, solve the problem and get the job done.
+
+I’m Jadd Steinhard. Welcome to my work.
+`,
+aboutFull: [
+"I am a multidisciplinary creative-production professional who works at the intersection of design, multimedia and live event delivery. My background spans more than two decades across advertising, touring, festivals, luxury hospitality, brand activations and independent productions. That breadth means I understand not only how to create compelling visual and multimedia work, but also how it needs to function in the real world, on screens, on stage, in venues, in campaigns and under live production pressure. I bring hands-on capability in graphic design, video and motion, live visuals, sound, lighting and AV, combined with event management, supplier coordination, artist liaison and production planning.",
   ],
   cvUrl: "/resume.pdf",
   skills: [
