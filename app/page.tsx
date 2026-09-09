@@ -28,16 +28,16 @@ export default function HomePage() {
         </div>
       </section>
 
-       {/* ABOUT TEASER */}
+      {/* ABOUT TEASER */}
       <section className="container-page border-t border-line py-28 text-center md:py-36">
-        <p className="font-accent mb-6 text-[11px] uppercase tracking-wide">About me</p>
-        <p className="mx-auto max-w-3xl font-normal text-xl leading-relaxed tracking-normal md:text-2xl whitespace-pre-line">
+        <p className="eyebrow mb-6">About me</p>
+        <p className="mx-auto max-w-3xl font-display text-2xl uppercase leading-snug tracking-tightest md:text-4xl">
           {profile.aboutTeaser}
         </p>
       </section>
 
       {/* SELECTED PROJECTS */}
-            <section className="container-page border-t border-line py-28 md:py-36">
+      <section className="container-page border-t border-line py-28 md:py-36">
         <div className="mb-12 flex items-end justify-between">
           <div>
             <p className="eyebrow mb-3">Selected</p>
@@ -60,7 +60,7 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES */}
-            <section className="container-page border-t border-line py-28 md:py-36">
+      <section className="container-page border-t border-line py-28 md:py-36">
         <p className="eyebrow mb-3">Services</p>
         <h2 className="mb-12 font-display text-4xl uppercase tracking-tightest md:text-6xl">What I do</h2>
 
@@ -83,6 +83,5 @@ export default function HomePage() {
         </div>
       </section>
     </>
-
   );
 }

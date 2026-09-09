@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import CustomCursor from "@/components/CustomCursor";
 import { Anton, Oswald, Work_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/content/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GridLines from "@/components/GridLines";
+import CustomCursor from "@/components/CustomCursor";
 
 const display = Anton({
   subsets: ["latin"],
@@ -50,15 +50,13 @@ export default function RootLayout({
     <html lang="en" className={`${display.variable} ${accent.variable} ${body.variable} ${mono.variable}`}>
       <body className="flex min-h-screen flex-col">
         <GridLines />
+        <CustomCursor />
         <div className="relative z-10 flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
-      <      <body className="flex min-h-screen flex-col">
-        <GridLines />
-        <CustomCursor />
-        <div className="relative z-10 flex min-h-screen flex-col">>
+      </body>
     </html>
   );
 }

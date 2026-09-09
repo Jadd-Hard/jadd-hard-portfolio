@@ -17,7 +17,7 @@ export default function ProjectCard({ project, priority = false }: { project: Pr
       </div>
       <div className="mt-4 flex items-baseline justify-between gap-4">
         <div>
-          <h3 className="font-display text-2xl uppercase tracking-tightest text-amber">{project.title}</h3>
+          <h3 className="font-accent text-xl font-medium uppercase tracking-wide2 text-amber">{project.title}</h3>
           <p className="mt-1 text-sm text-graphite">{project.subtitle}</p>
         </div>
         <span className="whitespace-nowrap font-mono text-[11px] uppercase tracking-wide2 text-graphite transition-colors group-hover:text-amber">

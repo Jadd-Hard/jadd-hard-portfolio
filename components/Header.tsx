@@ -113,7 +113,7 @@ export default function Header() {
                 className="flex flex-wrap gap-6"
               >
                 {socialLinks.map((s) => (
-                  
+                  <a
                     key={s.label}
                     href={s.href}
                     target="_blank"
