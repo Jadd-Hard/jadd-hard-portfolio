@@ -23,10 +23,7 @@ export default function HomePage() {
           <HeroPortrait name={profile.name} />
         </div>
 
-        <div className="container-page flex flex-col gap-10">
-          <h1 className="font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-tightest md:text-[5.2vw]">
-            {profile.heroHeadline}
-          </h1>
+        <div className="container-page flex flex-col items-center gap-10 text-center">
           <StatusRow />
         </div>
       </section>
@@ -76,7 +73,7 @@ export default function HomePage() {
                 <Image src={service.image} alt={service.title} fill sizes="50vw" className="object-cover" />
               </div>
               <div>
-                <h3 className="font-display text-2xl uppercase tracking-tightest">{service.title}</h3>
+                <h3 className="font-accent text-xl font-medium uppercase tracking-wide2">{service.title}</h3>
                 <ul className="mt-3 flex flex-col gap-1 text-sm text-graphite">
                   {service.items.map((item) => (
                     <li key={item}>{item}</li>
@@ -88,5 +85,6 @@ export default function HomePage() {
         </div>
       </section>
     </>
+
   );
 }
