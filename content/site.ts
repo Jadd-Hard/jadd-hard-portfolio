@@ -11,7 +11,11 @@
  *     paste it, and change the values.
  *  3. Save, commit, push — Vercel redeploys automatically.
  * ─────────────────────────────────────────────────────────────
- */
+ */export const marqueeWords: string[][] = [
+  ["Event Mngmnt", "Graphics", "Design", "Motion"],
+  ["Illustration", "Digital", "Corporate", "Audio"],
+  ["Visual", "Tech", "Websites", "Engineer"],
+];
 
 export type Project = {
   slug: string;
