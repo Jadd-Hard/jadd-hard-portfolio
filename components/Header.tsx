@@ -55,11 +55,11 @@ export default function Header() {
         href="/"
         aria-hidden={scrolled}
         tabIndex={scrolled ? -1 : 0}
-        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-display text-4xl uppercase leading-none tracking-tightest transition-opacity duration-300 md:text-7xl ${
+        className={`absolute inset-x-0 top-1/2 w-full -translate-y-1/2 text-center whitespace-nowrap font-display text-[clamp(2.75rem,10vw,9rem)] uppercase leading-none tracking-tightest text-paper/20 transition-opacity duration-300 ${
           scrolled ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
-        JADD <span className="text-amber">STEINHARD</span>
+        JADD STEINHARD
       </Link>
 
       <button
