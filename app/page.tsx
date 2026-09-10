@@ -71,7 +71,7 @@ export default function HomePage() {
                 <Image src={service.image} alt={service.title} fill sizes="50vw" className="object-cover" />
               </div>
               <div>
-                <h3 className="font-accent text-xl font-medium uppercase tracking-wide2">{service.title}</h3>
+                <h3 className="font-accent text-xl font-medium uppercase tracking-wide2 text-amber">{service.title}</h3>
                 <ul className="mt-3 flex flex-col gap-1 text-sm text-graphite">
                   {service.items.map((item) => (
                     <li key={item}>{item}</li>

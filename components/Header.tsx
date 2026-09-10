@@ -101,7 +101,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-              className="fixed inset-y-0 right-0 z-[60] flex w-full max-w-md flex-col justify-between bg-paper px-8 py-24 text-ink md:px-12"
+              className="fixed inset-y-0 right-0 z-[60] flex w-[88vw] max-w-sm flex-col justify-between bg-paper px-6 py-16 text-ink md:px-8"
             >
               <nav className="flex flex-col gap-1">
                 {navItems.map((item, i) => (
@@ -114,10 +114,10 @@ export default function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="group flex items-baseline gap-4 py-3"
+                      className="group flex items-baseline gap-3 py-2"
                     >
                       <span className="font-mono text-xs text-graphite">{item.number}</span>
-                      <span className="font-display text-5xl uppercase tracking-tightest transition-colors group-hover:text-amber">
+                      <span className="font-display text-4xl uppercase tracking-tightest transition-colors group-hover:text-amber">
                         {item.label}
                       </span>
                     </Link>
