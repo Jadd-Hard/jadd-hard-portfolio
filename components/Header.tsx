@@ -14,6 +14,7 @@ const navItems = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -30,6 +31,13 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const socialLinks = [
     { label: "Instagram", href: profile.socials.instagram },
     { label: "Behance", href: profile.socials.behance },
@@ -41,6 +49,17 @@ export default function Header() {
       <Link href="/" className="font-display text-sm font-medium uppercase tracking-wide2">
         {profile.shortName}
         <span className="text-amber">.</span>
+      </Link>
+
+      <Link
+        href="/"
+        aria-hidden={scrolled}
+        tabIndex={scrolled ? -1 : 0}
+        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-display text-4xl uppercase leading-none tracking-tightest transition-opacity duration-300 md:text-7xl ${
+          scrolled ? "pointer-events-none opacity-0" : "opacity-100"
+        }`}
+      >
+        JADD <span className="text-amber">STEINHARD</span>
       </Link>
 
       <button

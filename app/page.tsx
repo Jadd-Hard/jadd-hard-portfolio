@@ -13,12 +13,12 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-line pb-16 pt-10 md:pt-16">
+      <section className="border-b border-line pb-20 pt-12 md:pb-24 md:pt-20">
         <div className="container-page">
           <RoleRotator roles={profile.role} />
         </div>
 
-        <div className="relative my-8 md:my-12">
+        <div className="relative my-10 md:my-16">
           <HeroMarquee rows={marqueeWords} />
           <HeroPortrait name={profile.name} />
         </div>
