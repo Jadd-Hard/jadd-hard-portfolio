@@ -24,7 +24,7 @@ function MarqueeRow({ words, direction, tone, speed }: MarqueeRowProps) {
         {track.map((word, i) => (
           <span
             key={`${word}-${i}`}
-            className={`mx-4 shrink-0 whitespace-nowrap font-display text-[20vw] uppercase leading-[0.85] tracking-tightest md:mx-6 md:text-[10vw] ${colorClass}`}
+            className={`mx-4 shrink-0 whitespace-nowrap font-display text-[23vw] uppercase leading-[0.85] tracking-tightest md:mx-6 md:text-[12vw] ${colorClass}`}
           >
             {word}
           </span>
