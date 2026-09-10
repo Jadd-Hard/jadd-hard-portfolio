@@ -45,7 +45,7 @@ export const projects: Project[] = [
   },
   {
     slug: "monolith",
-    title: "Monolith",
+    title: "Tours",
     subtitle: "Editorial identity for an architecture journal",
     coverImage: "/work/monolith/01.jpg",
     gallery: ["/work/monolith/01.jpg"],
