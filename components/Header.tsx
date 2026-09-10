@@ -55,7 +55,7 @@ export default function Header() {
         href="/"
         aria-hidden={scrolled}
         tabIndex={scrolled ? -1 : 0}
-        className={`absolute inset-x-0 top-1/2 w-full -translate-y-1/2 text-center whitespace-nowrap font-display text-[clamp(2.75rem,10vw,9rem)] uppercase leading-none tracking-tightest text-paper/20 transition-opacity duration-300 ${
+        className={`absolute inset-x-0 top-1/2 w-full -translate-y-1/2 text-center whitespace-nowrap font-display text-[clamp(2.25rem,7vw,6rem)] uppercase leading-none tracking-tightest text-paper/20 transition-opacity duration-300 ${
           scrolled ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
