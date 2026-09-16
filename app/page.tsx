@@ -75,11 +75,11 @@ export default function HomePage() {
       </ScrollReveal>
 
       {/* SELECTED PROJECTS */}
-      <ScrollReveal id="selected-projects" className="container-page border-t border-line py-28 md:py-36">
-        <div className="mb-16 flex items-end justify-between">
+      <ScrollReveal id="selected-projects" className="container-page border-t border-line py-28 text-center md:py-36">
+        <div className="mb-16 flex flex-col items-center justify-center">
           <div className="max-w-4xl">
             <p className="eyebrow mb-3">Selected Projects</p>
-            <h2 className="font-display text-4xl uppercase leading-none tracking-tightest md:text-6xl">
+            <h2 className="font-accent text-3xl font-medium uppercase leading-[0.95] tracking-tightest text-paper/90 md:text-5xl">
               Two sides of my work. One creative approach.
             </h2>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-graphite md:text-lg">
