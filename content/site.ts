@@ -109,22 +109,22 @@ export const profile = {
     {
       title: "Digital Marketing & Creative Production",
       items: ["Campaign Strategy", "Corporate Identity", "Brand Activation", "Search Engine Optimization", "Social Media Management", "Content Creation & Curation", "Paid Search", "Analytics & Reporting"],
-      image: "/portrait.png",
+      image: "/agencyphoto.JPG",
     },
     {
       title: "Event Management",
       items: ["Concept Development", "Logistics & Hospitality", "Supplier Management", "Budgets", "Schedules", "On-Site Coordination", "Crisis Control","Post-Event Analysis"],
-      image: "/work/monolith/cover.jpg",
+      image: "/eventmanagement.JPG",
     },
     {
       title: "Live Event Production & Technical Direction",
       items: ["FOH Engineering", "Lighting Design & Operation", "Equipment Specification", "Stage Management", "Troubleshooting", "LED Screen Design", "Equipment Specification", "Power Distribution" ],
-      image: "/work/glasswork/cover.jpg",
+      image: "/tech1.JPG",
     },
     {
       title: "Artist Management & Talent Booking",
       items: ["Artist Representation", "Talent Booking", "Opportunity Sourcing", "Fee Negotiation", "Contract Management", "Artist Scheduling", "Rider Management", "Performance Coordination"],
-      image: "/work/aurora/cover.jpg",
+      image: "/talent.JPG",
     },
   ],
   footerNote: "Open to global relocation.",
