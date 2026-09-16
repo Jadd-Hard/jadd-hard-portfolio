@@ -22,6 +22,7 @@ export const marqueeWords: string[][] = [
 export type Project = {
   slug: string;
   title: string;
+  category: "Events" | "Corporate";
   subtitle: string;
   coverImage: string;
   gallery: string[];
@@ -35,6 +36,7 @@ export const projects: Project[] = [
   {
     slug: "aurora",
     title: "Aurora",
+    category: "Events",
     subtitle: "Generative light studies for a museum installation",
     coverImage: "/work/aurora/02.png",
     gallery: ["/work/aurora/02.png"],
@@ -46,9 +48,10 @@ export const projects: Project[] = [
   {
     slug: "monolith",
     title: "Tours",
+    category: "Corporate",
     subtitle: "Editorial identity for an architecture journal",
-    coverImage: "/work/monolith/01.jpg",
-    gallery: ["/work/monolith/01.jpg"],
+    coverImage: "/work/monolith/cover.jpg",
+    gallery: ["/work/monolith/cover.jpg"],
     liveUrl: "https://example.com",
     year: "2025",
     role: "Brand Identity, Print",
@@ -57,6 +60,7 @@ export const projects: Project[] = [
   {
     slug: "glasswork",
     title: "Glasswork",
+    category: "Corporate",
     subtitle: "Interactive 3D product configurator",
     coverImage: "/work/glasswork/cover.jpg",
     gallery: ["/work/glasswork/cover.jpg"],
@@ -68,6 +72,7 @@ export const projects: Project[] = [
   {
     slug: "paperlight",
     title: "Paperlight",
+    category: "Corporate",
     subtitle: "Illustrated packaging system for a stationery brand",
     coverImage: "/work/paperlight/cover.jpg",
     gallery: ["/work/paperlight/cover.jpg"],
