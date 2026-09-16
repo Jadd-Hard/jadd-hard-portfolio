@@ -38,10 +38,6 @@ export default function Header() {
 
   return (
     <header className="container-page sticky top-0 z-50 flex items-center justify-between py-6">
-      <Link href="/" className="font-display text-sm font-medium uppercase tracking-wide2">
-        JADD STEINHARD
-      </Link>
-
       <button
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
