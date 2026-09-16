@@ -5,6 +5,7 @@ import StatusRow from "@/components/StatusRow";
 import ProjectCard from "@/components/ProjectCard";
 import HeroMarquee from "@/components/HeroMarquee";
 import HeroPortrait from "@/components/HeroPortrait";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function HomePage() {
   const featured = projects.filter((p) => p.featured);
@@ -14,7 +15,7 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-line pb-16 pt-4 md:pb-20 md:pt-8">
+      <ScrollReveal className="border-b border-line pb-16 pt-4 md:pb-20 md:pt-8">
         <div className="relative my-4 md:my-8">
           <HeroMarquee rows={marqueeWords} />
           <HeroPortrait name={profile.name} />
@@ -23,10 +24,10 @@ export default function HomePage() {
         <div className="container-page flex flex-col items-center gap-10 text-center">
           <StatusRow />
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* ABOUT TEASER */}
-      <section className="container-page border-t border-line py-28 text-center md:py-36">
+      <ScrollReveal className="container-page border-t border-line py-28 text-center md:py-36">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-3xl uppercase leading-tight tracking-tightest md:text-5xl">
             I&apos;M NOT REALLY A <span className="text-amber">&quot;ONE THING&quot;</span> PERSON.
@@ -44,10 +45,10 @@ export default function HomePage() {
             <p className="font-accent uppercase tracking-wide2 text-paper">Welcome to my work.</p>
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* SERVICES */}
-      <section className="container-page border-t border-line py-28 md:py-36">
+      <ScrollReveal className="container-page border-t border-line py-28 md:py-36">
         <p className="eyebrow mb-3">Services</p>
         <h2 className="mb-12 font-display text-4xl uppercase tracking-tightest md:text-6xl">What I do</h2>
 
@@ -68,10 +69,10 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* SELECTED PROJECTS */}
-      <section className="container-page border-t border-line py-28 md:py-36">
+      <ScrollReveal className="container-page border-t border-line py-28 md:py-36">
         <div className="mb-16 flex items-end justify-between">
           <div className="max-w-4xl">
             <p className="eyebrow mb-3">Selected Projects</p>
@@ -142,7 +143,7 @@ export default function HomePage() {
         <Link href="/work" className="nav-link mt-10 inline-block md:hidden">
           View all projects →
         </Link>
-      </section>
+      </ScrollReveal>
     </>
   );
 }

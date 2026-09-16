@@ -33,6 +33,18 @@
     @apply mx-auto w-full max-w-[1400px] px-6 md:px-10;
   }
 
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(42px) scale(0.985);
+    transition: opacity 900ms ease, transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .section-reveal-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
   .bg-grain {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.8'/%3E%3C/svg%3E");
     background-size: 180px 180px;
@@ -52,5 +64,12 @@
   .hero-marquee-track {
     animation-duration: var(--marquee-duration) !important;
     animation-iteration-count: infinite !important;
+  }
+
+  .section-reveal,
+  .section-reveal-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
