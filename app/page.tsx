@@ -6,6 +6,8 @@ import ProjectCard from "@/components/ProjectCard";
 import HeroMarquee from "@/components/HeroMarquee";
 import HeroPortrait from "@/components/HeroPortrait";
 import ScrollReveal from "@/components/ScrollReveal";
+import RoleRotator from "@/components/RoleRotator";
+import SectionIndex from "@/components/SectionIndex";
 
 export default function HomePage() {
   const featured = projects.filter((p) => p.featured);
@@ -14,20 +16,32 @@ export default function HomePage() {
 
   return (
     <>
+      <SectionIndex />
       {/* HERO */}
-      <ScrollReveal className="border-b border-line pb-16 pt-4 md:pb-20 md:pt-8">
+      <ScrollReveal id="home" className="hero-section border-b border-line pb-16 pt-4 md:pb-20 md:pt-8">
+        <div className="hero-caption container-page mb-6 flex items-center justify-between font-mono text-[10px] uppercase tracking-wide2 text-graphite md:mb-10">
+          <span><i className="hero-signal-dot" /> Live / concept to completion</span>
+          <span className="hidden md:inline">Jadd Steinhard / 01</span>
+        </div>
         <div className="relative my-4 md:my-8">
           <HeroMarquee rows={marqueeWords} />
           <HeroPortrait name={profile.name} />
         </div>
 
-        <div className="container-page flex flex-col items-center gap-10 text-center">
+        <div className="container-page flex flex-col items-center gap-8 text-center md:gap-10">
+          <div className="hero-statement max-w-3xl">
+            <p className="eyebrow mb-3">Creative direction / live production / visual systems</p>
+            <h1 className="font-display text-4xl uppercase leading-[0.9] tracking-tightest md:text-7xl">
+              {profile.heroHeadline}
+            </h1>
+            <div className="mt-5 flex justify-center"><RoleRotator roles={profile.role} /></div>
+          </div>
           <StatusRow />
         </div>
       </ScrollReveal>
 
       {/* ABOUT TEASER */}
-      <ScrollReveal className="container-page border-t border-line py-28 text-center md:py-36">
+      <ScrollReveal id="about" className="container-page border-t border-line py-28 text-center md:py-36">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-3xl uppercase leading-tight tracking-tightest md:text-5xl">
             I&apos;M NOT REALLY A <span className="text-amber">&quot;ONE THING&quot;</span> PERSON.
@@ -48,7 +62,7 @@ export default function HomePage() {
       </ScrollReveal>
 
       {/* SERVICES */}
-      <ScrollReveal className="container-page border-t border-line py-28 md:py-36">
+      <ScrollReveal id="services" className="container-page border-t border-line py-28 md:py-36">
         <p className="eyebrow mb-3">Services</p>
         <h2 className="mb-12 font-display text-4xl uppercase tracking-tightest md:text-6xl">What I do</h2>
 
@@ -72,7 +86,7 @@ export default function HomePage() {
       </ScrollReveal>
 
       {/* SELECTED PROJECTS */}
-      <ScrollReveal className="container-page border-t border-line py-28 md:py-36">
+      <ScrollReveal id="selected-projects" className="container-page border-t border-line py-28 md:py-36">
         <div className="mb-16 flex items-end justify-between">
           <div className="max-w-4xl">
             <p className="eyebrow mb-3">Selected Projects</p>
@@ -105,7 +119,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid gap-px overflow-hidden bg-line md:grid-cols-2">
+        <div className="grid gap-6 md:gap-8 md:grid-cols-2">
           {[
             ["Events", eventProjects],
             ["Corporate", corporateProjects],
@@ -117,7 +131,7 @@ export default function HomePage() {
               <Link
                 key={category as string}
                 href={`/work?category=${(category as string).toLowerCase()}`}
-                className="group block border-2 border-amber bg-ink transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(232,168,56,0.18)]"
+                className={`category-panel group block border-2 bg-ink transition-transform duration-500 hover:-translate-y-1 ${category === "Events" ? "category-panel-events border-amber" : "category-panel-corporate border-paper/40"}`}
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-line">
                   <Image
