@@ -96,7 +96,7 @@ export const profile = {
     behance: "",
     linkedin: "https://linkedin.com/in/jadd-steinhard",
   },
-  heroHeadline: "Twenty-two years running the show and designing everything around it.",
+  heroHeadline: "Still learning, still making, and looking forward to what comes next.",
   aboutTeaser:
     "I plan and run large-scale live events, and I design the brand campaigns, motion content, and visuals that go with them — one continuous practice, not two separate careers.",
   aboutFull: [

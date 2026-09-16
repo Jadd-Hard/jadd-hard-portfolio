@@ -6,7 +6,6 @@ import ProjectCard from "@/components/ProjectCard";
 import HeroMarquee from "@/components/HeroMarquee";
 import HeroPortrait from "@/components/HeroPortrait";
 import ScrollReveal from "@/components/ScrollReveal";
-import RoleRotator from "@/components/RoleRotator";
 import SectionIndex from "@/components/SectionIndex";
 
 export default function HomePage() {
@@ -28,36 +27,26 @@ export default function HomePage() {
           <HeroPortrait name={profile.name} />
         </div>
 
-        <div className="container-page flex flex-col items-center gap-8 text-center md:gap-10">
-          <div className="hero-statement max-w-3xl">
+        <div className="container-page flex flex-col items-center gap-12 text-center md:gap-16">
+          <div className="hero-statement mt-14 max-w-3xl md:mt-24">
             <p className="eyebrow mb-3">Creative direction / live production / visual systems</p>
-            <h1 className="font-display text-4xl uppercase leading-[0.9] tracking-tightest md:text-7xl">
-              {profile.heroHeadline}
+            <h1 className="font-accent text-3xl font-medium uppercase leading-[0.95] tracking-tightest text-paper/90 md:text-5xl">
+              I&apos;M NOT REALLY A <span className="text-amber">&quot;ONE THING&quot;</span> PERSON.
             </h1>
-            <div className="mt-5 flex justify-center"><RoleRotator roles={profile.role} /></div>
+            <p className="mt-5 font-accent text-xl uppercase leading-snug tracking-wide2 text-paper/90 md:text-2xl">
+              I <span className="text-amber">design</span>. I <span className="text-amber">build</span>. I <span className="text-amber">produce</span>. I <span className="text-amber">engineer</span>. I <span className="text-amber">create</span>.
+            </p>
+            <div className="mx-auto mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-graphite md:text-lg">
+              <p>
+                For over two decades, I&apos;ve moved between design studios, stages, venues, control rooms, production floors and creative projects — often occupying several roles at once.
+              </p>
+              <p>
+                That&apos;s shaped the way I work: think creatively, understand the technology, solve the problem and get the job done.
+              </p>
+              <p className="font-accent uppercase tracking-wide2 text-paper">Welcome to my work.</p>
+            </div>
           </div>
           <StatusRow />
-        </div>
-      </ScrollReveal>
-
-      {/* ABOUT TEASER */}
-      <ScrollReveal id="about" className="container-page border-t border-line py-28 text-center md:py-36">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-3xl uppercase leading-tight tracking-tightest md:text-5xl">
-            I&apos;M NOT REALLY A <span className="text-amber">&quot;ONE THING&quot;</span> PERSON.
-          </h2>
-          <p className="mt-8 font-display text-2xl uppercase leading-snug tracking-tightest md:text-4xl">
-            I <span className="text-amber">design</span>. I <span className="text-amber">build</span>. I <span className="text-amber">produce</span>. I <span className="text-amber">engineer</span>. I <span className="text-amber">create</span>.
-          </p>
-          <div className="mx-auto mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-graphite md:text-lg">
-            <p>
-              For over two decades, I&apos;ve moved between design studios, stages, venues, control rooms, production floors and creative projects — often occupying several roles at once.
-            </p>
-            <p>
-              That&apos;s shaped the way I work: think creatively, understand the technology, solve the problem and get the job done.
-            </p>
-            <p className="font-accent uppercase tracking-wide2 text-paper">Welcome to my work.</p>
-          </div>
         </div>
       </ScrollReveal>
 
