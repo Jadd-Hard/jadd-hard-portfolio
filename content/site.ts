@@ -19,17 +19,88 @@ export const marqueeWords: string[][] = [
   ["Visual", "Tech", "Websites", "Engineer"],
 ];
 
+export type BlockType =
+  | "hero"
+  | "text"
+  | "image-grid"
+  | "full-width-media"
+  | "two-column"
+  | "spacer";
+
+export interface BaseBlock {
+  type: BlockType;
+  id: string;
+}
+
+export interface HeroBlock extends BaseBlock {
+  type: "hero";
+  title?: string;
+  subtitle?: string;
+  mediaUrl: string;
+  mediaType: "image" | "video";
+  overlayOpacity?: number; // 0 to 1
+}
+
+export interface TextBlock extends BaseBlock {
+  type: "text";
+  heading?: string;
+  body: string;
+  alignment?: "left" | "center";
+  width?: "narrow" | "default" | "wide";
+}
+
+export interface ImageGridBlock extends BaseBlock {
+  type: "image-grid";
+  columns: 1 | 2 | 3;
+  gap?: "small" | "medium" | "large";
+  items: {
+    url: string;
+    alt?: string;
+    caption?: string;
+  }[];
+}
+
+export interface FullWidthMediaBlock extends BaseBlock {
+  type: "full-width-media";
+  mediaUrl: string;
+  mediaType: "image" | "video";
+  caption?: string;
+  aspectRatio?: "16/9" | "21/9" | "auto";
+}
+
+export interface TwoColumnBlock extends BaseBlock {
+  type: "two-column";
+  gridConfig: "1:1" | "1:2" | "2:1";
+  left: {
+    type: "text" | "image" | "video";
+    content?: string;
+    mediaUrl?: string;
+  };
+  right: {
+    type: "text" | "image" | "video";
+    content?: string;
+    mediaUrl?: string;
+  };
+}
+
+export type ProjectBlock =
+  | HeroBlock
+  | TextBlock
+  | ImageGridBlock
+  | FullWidthMediaBlock
+  | TwoColumnBlock;
+
 export type Project = {
   slug: string;
   title: string;
   category: "Events" | "Corporate";
   subtitle: string;
   coverImage: string;
-  gallery: string[];
-  liveUrl?: string;
   year: string;
   role: string;
   featured: boolean;
+  liveUrl?: string;
+  blocks: ProjectBlock[];
 };
 
 export const projects: Project[] = [
@@ -39,11 +110,59 @@ export const projects: Project[] = [
     category: "Events",
     subtitle: "Generative light studies for a museum installation",
     coverImage: "/work/aurora/02.png",
-    gallery: ["/work/aurora/02.png"],
-    liveUrl: "https://example.com",
     year: "2026",
     role: "Art Direction, Motion",
     featured: true,
+    blocks: [
+      {
+        id: "hero-01",
+        type: "hero",
+        mediaUrl: "/work/aurora/02.png",
+        mediaType: "image",
+        title: "Aurora Lights",
+        subtitle: "A journey through generative photons.",
+        overlayOpacity: 0.4,
+      },
+      {
+        id: "intro-text",
+        type: "text",
+        heading: "The Concept",
+        body: "Aurora was commissioned as a site-specific installation... we wanted to bridge the gap between digital generative art and physical light refraction. The installation uses a series of custom-built prismatic arrays that react to real-time data feeds, creating a living, breathing light sculpture.",
+        alignment: "center",
+        width: "narrow",
+      },
+      {
+        id: "split-01",
+        type: "two-column",
+        gridConfig: "1:1",
+        left: {
+          type: "image",
+          mediaUrl: "/work/aurora/02.png",
+        },
+        right: {
+          type: "text",
+          content: "The Technical Challenge\n\nHandling 120fps generative content across a 40-meter LED surface required a custom playback engine. We developed a proprietary bridge between TouchDesigner and the hardware controllers to ensure zero-latency interaction.",
+        },
+      },
+      {
+        id: "full-width-vid",
+        type: "full-width-media",
+        mediaUrl: "/work/aurora/02.png", // Using image as placeholder for now
+        mediaType: "image",
+        caption: "Full scale test at the studio warehouse.",
+        aspectRatio: "21/9",
+      },
+      {
+        id: "grid-01",
+        type: "image-grid",
+        columns: 2,
+        gap: "medium",
+        items: [
+          { url: "/work/aurora/02.png", alt: "Detail 1" },
+          { url: "/work/aurora/02.png", alt: "Detail 2" },
+        ],
+      },
+    ],
   },
   {
     slug: "monolith",
@@ -51,11 +170,10 @@ export const projects: Project[] = [
     category: "Corporate",
     subtitle: "Editorial identity for an architecture journal",
     coverImage: "/work/monolith/cover.jpg",
-    gallery: ["/work/monolith/cover.jpg"],
-    liveUrl: "https://example.com",
     year: "2025",
     role: "Brand Identity, Print",
     featured: true,
+    blocks: [],
   },
   {
     slug: "glasswork",
@@ -63,11 +181,10 @@ export const projects: Project[] = [
     category: "Corporate",
     subtitle: "Interactive 3D product configurator",
     coverImage: "/work/glasswork/cover.jpg",
-    gallery: ["/work/glasswork/cover.jpg"],
-    liveUrl: "https://example.com",
     year: "2025",
     role: "Web Development, UI",
     featured: false,
+    blocks: [],
   },
   {
     slug: "paperlight",
@@ -75,11 +192,10 @@ export const projects: Project[] = [
     category: "Corporate",
     subtitle: "Illustrated packaging system for a stationery brand",
     coverImage: "/work/paperlight/cover.jpg",
-    gallery: ["/work/paperlight/cover.jpg"],
-    liveUrl: "https://example.com",
     year: "2024",
     role: "Illustration, Packaging",
     featured: false,
+    blocks: [],
   },
 ];
 
