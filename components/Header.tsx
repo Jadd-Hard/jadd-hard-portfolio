@@ -47,18 +47,6 @@ export default function Header() {
   return (
     <header className="container-page sticky top-0 z-50 flex items-center justify-between py-6">
       <Link href="/" className="font-display text-sm font-medium uppercase tracking-wide2">
-        {profile.shortName}
-        <span className="text-amber">.</span>
-      </Link>
-
-      <Link
-        href="/"
-        aria-hidden={scrolled}
-        tabIndex={scrolled ? -1 : 0}
-        className={`absolute inset-x-0 top-1/2 w-full -translate-y-1/2 text-center whitespace-nowrap font-display text-[clamp(2.25rem,7vw,6rem)] uppercase leading-none tracking-tightest text-paper/20 transition-opacity duration-300 ${
-          scrolled ? "pointer-events-none opacity-0" : "opacity-100"
-        }`}
-      >
         JADD STEINHARD
       </Link>
 
