@@ -51,7 +51,7 @@ export default function HomePage() {
         <p className="eyebrow mb-3">Services</p>
         <h2 className="mb-12 font-display text-4xl uppercase tracking-tightest md:text-6xl">What I do</h2>
 
-        <div className="grid gap-px overflow-hidden bg-line md:grid-cols-2">
+        <div className="grid gap-6 md:gap-8 md:grid-cols-2">
           {profile.services.map((service) => (
             <div key={service.title} className="flex flex-col gap-6 bg-ink p-8">
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-line">
@@ -116,19 +116,21 @@ export default function HomePage() {
               <Link
                 key={category as string}
                 href={`/work?category=${(category as string).toLowerCase()}`}
-                className="group relative flex min-h-[22rem] flex-col justify-end overflow-hidden bg-ink p-8"
+                className="group block border-2 border-amber bg-ink transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(232,168,56,0.18)]"
               >
-                <Image
-                  src={previewProject.coverImage}
-                  alt=""
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover opacity-45 grayscale transition duration-700 group-hover:scale-105 group-hover:opacity-60"
-                />
-                <div className="relative z-10">
-                  <p className="eyebrow mb-3 text-paper/70">{projectsForCategory.length} selected pieces</p>
-                  <h3 className="font-display text-5xl uppercase tracking-tightest text-paper md:text-7xl">{category as string}</h3>
-                  <span className="mt-8 inline-block font-accent text-[11px] uppercase tracking-wide2 text-amber">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-line">
+                  <Image
+                    src={category === "Events" ? "/eventcollage.JPG" : "/coprorate1.png"}
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  />
+                </div>
+                <div className="p-8">
+                  <p className="eyebrow mb-3">{projectsForCategory.length} selected pieces</p>
+                  <h3 className="font-display text-5xl uppercase tracking-tightest md:text-7xl">{category as string}</h3>
+                  <span className="mt-6 inline-block font-accent text-[11px] uppercase tracking-wide2 text-amber">
                     Explore {category as string} work →
                   </span>
                 </div>
