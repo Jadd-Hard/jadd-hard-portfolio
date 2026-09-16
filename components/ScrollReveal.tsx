@@ -14,10 +14,7 @@ export default function ScrollReveal({ className = "", children, ...props }: Scr
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(element);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     );
