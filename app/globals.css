@@ -48,4 +48,9 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+
+  .hero-marquee-track {
+    animation-duration: var(--marquee-duration) !important;
+    animation-iteration-count: infinite !important;
+  }
 }

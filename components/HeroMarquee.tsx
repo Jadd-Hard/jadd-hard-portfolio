@@ -18,8 +18,8 @@ function MarqueeRow({ words, direction, tone, speed }: MarqueeRowProps) {
   return (
     <div className="overflow-hidden">
       <div
-        className={`flex w-max items-center will-change-transform ${animationClass}`}
-        style={{ animationDuration: `${speed}s` }}
+        className={`hero-marquee-track flex w-max items-center will-change-transform ${animationClass}`}
+        style={{ "--marquee-duration": `${speed}s` } as React.CSSProperties}
       >
         {track.map((word, i) => (
           <span
