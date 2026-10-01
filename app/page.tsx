@@ -120,20 +120,22 @@ export default function HomePage() {
               <Link
                 key={category as string}
                 href={`/work?category=${(category as string).toLowerCase()}`}
-                className={`category-panel group block border-2 bg-ink transition-transform duration-500 hover:-translate-y-1 ${category === "Events" ? "category-panel-events border-amber" : "category-panel-corporate border-paper/40"}`}
+                className={`category-panel group block border-2 border-paper/40 bg-ink transition-transform duration-500 hover:-translate-y-1 ${category === "Events" ? "category-panel-events" : "category-panel-corporate"}`}
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-line">
+                <div className="relative aspect-[2480/3508] w-full overflow-hidden border-2 border-red-600 bg-line">
                   <Image
-                    src={category === "Events" ? "/eventcollage.JPG" : "/coprorate1.png"}
-                    alt=""
+                    src={category === "Events" ? "/flyercollage.png" : "/cocacola.png"}
+                    alt={category === "Events" ? "Collage of event posters and flyer artwork" : "Coca-Cola corporate artwork"}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                    className="object-contain"
                   />
+                  <h3 className="pointer-events-none absolute left-4 top-4 z-10 bg-ink/85 px-3 py-2 font-display text-4xl uppercase leading-none tracking-tightest text-paper md:text-5xl">
+                    {category as string}
+                  </h3>
                 </div>
                 <div className="p-8">
                   <p className="eyebrow mb-3">{projectsForCategory.length} selected pieces</p>
-                  <h3 className="font-display text-5xl uppercase tracking-tightest md:text-7xl">{category as string}</h3>
                   <span className="mt-6 inline-block font-accent text-[11px] uppercase tracking-wide2 text-amber">
                     Explore {category as string} work →
                   </span>
