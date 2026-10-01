@@ -10,23 +10,20 @@ export const metadata = {
 export default async function WorkPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
   const { category: searchCategory } = await searchParams;
   const category = searchCategory?.toLowerCase();
-  if (category === "events") redirect("/events");
 
-  const filteredProjects = category
-    ? projects.filter((project) => project.category.toLowerCase() === category)
-    : projects;
-  const heading = category === "events" ? "Events" : category === "corporate" ? "Corporate" : "Featured work";
-  const intro = category === "events"
-    ? "Fast, visual and experiential work made for live environments, audiences and moments that only happen once."
-    : category === "corporate"
-      ? "Brand, digital and visual systems built to communicate clearly across real-world platforms."
-      : "A working archive across live experience, visual identity, digital systems and multimedia design.";
+  if (!category || category === "events") redirect("/events");
+  if (category !== "corporate") redirect("/events");
+
+  const filteredProjects = projects.filter((project) => project.category.toLowerCase() === category);
+  const isCorporate = category === "corporate";
+  const heading = "Corporate";
+  const intro = "Brand, digital and visual systems built to communicate clearly across real-world platforms.";
 
   return (
-    <section className={`archive-page archive-${category || "all"} container-page py-16 md:pt-16`}>
+    <section className="archive-page archive-corporate container-page py-16 md:pt-16">
       <div className="archive-header">
         <div>
-          <p className="eyebrow mb-4">Archive / {category || "all work"}</p>
+          <p className="eyebrow mb-4">Archive / Corporate</p>
           <h1 className="font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-tightest md:text-[6.5vw]">
             {heading}
           </h1>
@@ -35,9 +32,8 @@ export default async function WorkPage({ searchParams }: { searchParams: Promise
       </div>
 
       <nav className="archive-switcher" aria-label="Project categories">
-        <Link href="/work" className={!category ? "archive-switcher-active" : ""}>All work</Link>
         <Link href="/events">Events</Link>
-        <Link href="/work?category=corporate" className={category === "corporate" ? "archive-switcher-active" : ""}>Corporate</Link>
+        <Link href="/work?category=corporate" className={isCorporate ? "archive-switcher-active" : ""}>Corporate</Link>
       </nav>
 
       <div className="grid gap-x-10 gap-y-16 md:grid-cols-2">

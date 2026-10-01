@@ -282,8 +282,8 @@ export const eventPosters: EventPoster[] = [
     title: "Lionheart — South African Tour",
     caption: "Black-and-gold tour artwork layers a dense list of South African dates and supporting acts beneath a heavy metal-inspired masthead.",
     image: "/work/tours/lionheart-united-states.jpg",
-    width: 160,
-    height: 316,
+    width: 2200,
+    height: 4345,
   },
   {
     slug: "lowprofile",
@@ -298,8 +298,8 @@ export const eventPosters: EventPoster[] = [
     title: "No Turning Back — Unity Through Diversity",
     caption: "Band photography and bold stacked typography introduce the 2009 Unity Through Diversity tour, promoted by Flag Music.",
     image: "/work/tours/no-turning-back-netherlands.jpg",
-    width: 200,
-    height: 470,
+    width: 1800,
+    height: 4230,
   },
   {
     slug: "peasant",
