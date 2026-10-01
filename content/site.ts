@@ -511,6 +511,9 @@ export const eventPosters: EventPoster[] = [
   },
 ];
 
+export const galleryPosters: EventPoster[] = [...eventPosters];
+export const archivePosters: EventPoster[] = [];
+
 export const profile = {
   name: "Jadd Steinhard",
   shortName: "JS",

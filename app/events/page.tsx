@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { eventPosters, profile } from "@/content/site";
+import { archivePosters, galleryPosters, profile } from "@/content/site";
 
 export const metadata: Metadata = {
   title: `Events — ${profile.name}`,
   description: "A collection of tour posters and live-event artwork by Jadd Steinhard.",
 };
 
-export default function EventsPage() {
+export default async function EventsPage({ searchParams }: { searchParams: Promise<{ view?: string }> }) {
+  const { view } = await searchParams;
+  const activeView = view === "archives" ? "archives" : "gallery";
+  const posters = activeView === "archives" ? archivePosters : galleryPosters;
+
   return (
     <section className="events-page container-page py-16 md:pt-16">
       <header className="events-header">
@@ -23,13 +27,18 @@ export default function EventsPage() {
         </p>
       </header>
 
-      <div className="events-meta" aria-label={`${eventPosters.length} tour posters`}>
-        <span>Posters</span>
-        <span>{String(eventPosters.length).padStart(2, "0")} posters</span>
+      <div className="events-meta" aria-label={`${posters.length} posters`}>
+        <div className="flex gap-3">
+          <Link href="/events?view=gallery" className={activeView === "gallery" ? "archive-switcher-active" : ""}>Gallery</Link>
+          <Link href="/events?view=archives" className={activeView === "archives" ? "archive-switcher-active" : ""}>From the Archives</Link>
+        </div>
+        <span>{String(posters.length).padStart(2, "0")} posters</span>
       </div>
 
       <div className="events-gallery columns-1 gap-x-8 sm:columns-2 xl:columns-3">
-        {eventPosters.map((poster, index) => (
+        {posters.length === 0 ? (
+          <p className="text-graphite">No posters in this section yet.</p>
+        ) : posters.map((poster, index) => (
           <figure id={poster.slug} key={poster.slug} className="event-poster mb-8 inline-block w-full break-inside-avoid align-top">
             <div className="event-poster-artwork">
               <Image
