@@ -9,7 +9,8 @@ const navItems = [
   { number: "01", label: "Home", href: "/" },
   { number: "02", label: "About", href: "/about" },
   { number: "03", label: "Work", href: "/work" },
-  { number: "04", label: "Contact", href: "/#footer" },
+  { number: "04", label: "Events", href: "/events" },
+  { number: "05", label: "Contact", href: "/#footer" },
 ];
 
 export default function Header() {

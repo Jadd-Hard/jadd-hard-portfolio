@@ -1,20 +1,22 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { profile, projects } from "@/content/site";
+import ProjectContent from "@/components/ProjectContent";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const project = projects.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
   return { title: `${project.title} — ${profile.name}` };
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const index = projects.findIndex((p) => p.slug === params.slug);
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const index = projects.findIndex((p) => p.slug === slug);
   if (index === -1) return notFound();
 
   const project = projects[index];
@@ -24,7 +26,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     <article>
       <section className={`project-hero project-hero-${project.category.toLowerCase()} container-page py-16 md:pt-16`}>
         <div className="flex items-center justify-between gap-4">
-          <Link href={`/work?category=${project.category.toLowerCase()}`} className="nav-link">
+          <Link href={project.category === "Events" ? "/events" : `/work?category=${project.category.toLowerCase()}`} className="nav-link">
             ← Back to {project.category}
           </Link>
           <span className="font-mono text-[10px] uppercase tracking-wide2 text-graphite">Archive / {project.category}</span>
@@ -65,20 +67,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             A selected piece from a practice built around moving ideas from concept through to finished execution.
           </p>
         </aside>
-        <div className="flex flex-col gap-8">
-        {project.gallery.map((src, i) => (
-          <div key={src + i} className="relative aspect-[16/10] w-full overflow-hidden bg-line">
-            <Image
-              src={src}
-              alt={`${project.title} image ${i + 1}`}
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-        ))}
-        </div>
+        <ProjectContent project={project} />
       </section>
 
       <section className="container-page flex items-center justify-between border-t border-line py-12">

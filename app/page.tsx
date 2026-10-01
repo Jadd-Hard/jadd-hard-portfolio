@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { profile, projects, marqueeWords } from "@/content/site";
+import { eventPosters, profile, projects, marqueeWords } from "@/content/site";
 import StatusRow from "@/components/StatusRow";
-import ProjectCard from "@/components/ProjectCard";
 import HeroMarquee from "@/components/HeroMarquee";
 import HeroPortrait from "@/components/HeroPortrait";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -64,8 +63,8 @@ export default function HomePage() {
               <div>
                 <h3 className="font-accent text-xl font-medium uppercase tracking-wide2 text-amber">{service.title}</h3>
                 <ul className="mt-3 flex flex-col gap-1 text-sm text-graphite">
-                  {service.items.map((item) => (
-                    <li key={item}>{item}</li>
+                  {service.items.map((item, itemIndex) => (
+                    <li key={`${item}-${itemIndex}`}>{item}</li>
                   ))}
                 </ul>
               </div>
@@ -114,12 +113,11 @@ export default function HomePage() {
             ["Corporate", corporateProjects],
           ].map(([category, categoryProjects]) => {
             const projectsForCategory = categoryProjects as typeof featured;
-            const previewProject = projectsForCategory[0];
 
             return (
               <Link
                 key={category as string}
-                href={`/work?category=${(category as string).toLowerCase()}`}
+                href={category === "Events" ? "/events" : `/work?category=${(category as string).toLowerCase()}`}
                 className={`category-panel group block border-2 border-paper/40 bg-ink transition-transform duration-500 hover:-translate-y-1 ${category === "Events" ? "category-panel-events" : "category-panel-corporate"}`}
               >
                 <div className="relative aspect-[2480/3508] w-full overflow-hidden border-2 border-red-600 bg-line">
@@ -135,7 +133,9 @@ export default function HomePage() {
                   </h3>
                 </div>
                 <div className="p-8">
-                  <p className="eyebrow mb-3">{projectsForCategory.length} selected pieces</p>
+                  <p className="eyebrow mb-3">
+                    {category === "Events" ? `${eventPosters.length} tour posters` : `${projectsForCategory.length} selected pieces`}
+                  </p>
                   <span className="mt-6 inline-block font-accent text-[11px] uppercase tracking-wide2 text-amber">
                     Explore {category as string} work →
                   </span>

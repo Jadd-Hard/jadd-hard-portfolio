@@ -19,6 +19,7 @@ Open http://localhost:3000
 4. Save — that's it. No other file needs to change.
 
 Everything else on the site (your name, bio, socials, skills, services) also lives in `content/site.ts`.
+Tour posters for the Events archive are listed in `eventPosters` in that same file, with their images in `public/work/tours/`.
 
 ## Set up the contact form (optional but recommended)
 
@@ -54,6 +55,7 @@ app/                 pages (App Router)
   about/page.tsx     about
   work/page.tsx      work grid
   work/[slug]/       project detail (dynamic)
+  events/page.tsx    tour poster archive
   api/contact/       contact form backend
 components/          reusable UI pieces
 content/site.ts      <- all editable content lives here

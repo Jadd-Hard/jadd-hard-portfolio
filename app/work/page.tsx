@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { profile, projects } from "@/content/site";
 import ProjectCard from "@/components/ProjectCard";
 
@@ -6,8 +7,11 @@ export const metadata = {
   title: `Work — ${profile.name}`,
 };
 
-export default function WorkPage({ searchParams }: { searchParams: { category?: string } }) {
-  const category = searchParams.category?.toLowerCase();
+export default async function WorkPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
+  const { category: searchCategory } = await searchParams;
+  const category = searchCategory?.toLowerCase();
+  if (category === "events") redirect("/events");
+
   const filteredProjects = category
     ? projects.filter((project) => project.category.toLowerCase() === category)
     : projects;
@@ -32,7 +36,7 @@ export default function WorkPage({ searchParams }: { searchParams: { category?: 
 
       <nav className="archive-switcher" aria-label="Project categories">
         <Link href="/work" className={!category ? "archive-switcher-active" : ""}>All work</Link>
-        <Link href="/work?category=events" className={category === "events" ? "archive-switcher-active" : ""}>Events</Link>
+        <Link href="/events">Events</Link>
         <Link href="/work?category=corporate" className={category === "corporate" ? "archive-switcher-active" : ""}>Corporate</Link>
       </nav>
 

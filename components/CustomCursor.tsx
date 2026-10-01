@@ -1,22 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+
+function getCursorSupport() {
+  return (
+    window.matchMedia("(pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
+
+function subscribeCursorSupport(onStoreChange: () => void) {
+  const finePointer = window.matchMedia("(pointer: fine)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  finePointer.addEventListener("change", onStoreChange);
+  reducedMotion.addEventListener("change", onStoreChange);
+
+  return () => {
+    finePointer.removeEventListener("change", onStoreChange);
+    reducedMotion.removeEventListener("change", onStoreChange);
+  };
+}
 
 export default function CustomCursor() {
-  const [enabled, setEnabled] = useState(false);
+  const enabled = useSyncExternalStore(subscribeCursorSupport, getCursorSupport, () => false);
   const [pos, setPos] = useState({ x: -100, y: -100 });
 
   useEffect(() => {
-    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!hasFinePointer || reducedMotion) return;
-
-    setEnabled(true);
-
+    if (!enabled) return;
     const handleMove = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
     window.addEventListener("mousemove", handleMove);
     return () => window.removeEventListener("mousemove", handleMove);
-  }, []);
+  }, [enabled]);
 
   if (!enabled) return null;
 

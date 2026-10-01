@@ -68,19 +68,22 @@ export interface FullWidthMediaBlock extends BaseBlock {
   aspectRatio?: "16/9" | "21/9" | "auto";
 }
 
+export interface ProjectColumnContent {
+  type: "text" | "image" | "video";
+  content?: string;
+  mediaUrl?: string;
+}
+
 export interface TwoColumnBlock extends BaseBlock {
   type: "two-column";
   gridConfig: "1:1" | "1:2" | "2:1";
-  left: {
-    type: "text" | "image" | "video";
-    content?: string;
-    mediaUrl?: string;
-  };
-  right: {
-    type: "text" | "image" | "video";
-    content?: string;
-    mediaUrl?: string;
-  };
+  left: ProjectColumnContent;
+  right: ProjectColumnContent;
+}
+
+export interface SpacerBlock extends BaseBlock {
+  type: "spacer";
+  size?: "small" | "medium" | "large";
 }
 
 export type ProjectBlock =
@@ -88,7 +91,8 @@ export type ProjectBlock =
   | TextBlock
   | ImageGridBlock
   | FullWidthMediaBlock
-  | TwoColumnBlock;
+  | TwoColumnBlock
+  | SpacerBlock;
 
 export type Project = {
   slug: string;
@@ -196,6 +200,130 @@ export const projects: Project[] = [
     role: "Illustration, Packaging",
     featured: false,
     blocks: [],
+  },
+];
+
+export type EventPoster = {
+  slug: string;
+  title: string;
+  caption: string;
+  image: string;
+  width: number;
+  height: number;
+};
+
+export const eventPosters: EventPoster[] = [
+  {
+    slug: "ashes",
+    title: "Ashes — Belgium Hardcore",
+    caption: "A fluorescent yellow-and-black show poster pairs oversized distressed lettering with halftone imagery for a Burnout Pub bill in Edenvale.",
+    image: "/work/tours/ashes.jpg",
+    width: 1273,
+    height: 1800,
+  },
+  {
+    slug: "blame-thrower",
+    title: "Blame Thrower — New Zealand",
+    caption: "Monochrome tour artwork built around a stark, hand-drawn illustration and layered cut-and-paste typography.",
+    image: "/work/tours/blame-thrower-new-zealand.jpg",
+    width: 1448,
+    height: 2048,
+  },
+  {
+    slug: "boargazm",
+    title: "Boargazm — South African Tour",
+    caption: "Boargazm and Prescription Death share a South African tour bill in a raw black-and-orange layout with mirrored graphic emblems.",
+    image: "/work/tours/boargazm.jpg",
+    width: 1200,
+    height: 628,
+  },
+  {
+    slug: "bowling-for-soup",
+    title: "Bowling for Soup — South Africa",
+    caption: "A first South African visit is announced with punchy red-and-blue band branding, a run of local dates and a full-band portrait.",
+    image: "/work/tours/bowling-for-soup.jpg",
+    width: 800,
+    height: 1237,
+  },
+  {
+    slug: "cdc",
+    title: "CDC — South African Tour",
+    caption: "Pennsylvania hardcore band CDC’s South African dates are presented in a lo-fi collage of live photography and tour details.",
+    image: "/work/tours/cdc-united-states.jpg",
+    width: 604,
+    height: 428,
+  },
+  {
+    slug: "drunken-banshees",
+    title: "Drunken Banshees — South Africa",
+    caption: "A compact red, black and white announcement for the Washington, D.C. punk band’s July 2009 South African dates.",
+    image: "/work/tours/drunken-banshees-united-states.jpg",
+    width: 200,
+    height: 375,
+  },
+  {
+    slug: "half-price",
+    title: "Half Price — The Liability Tour",
+    caption: "Hand-drawn lettering and a playful pink illustration set the tone for this show at Street Cafe in Edenvale.",
+    image: "/work/tours/half-price-durban.jpg",
+    width: 707,
+    height: 1000,
+  },
+  {
+    slug: "slippery-when-wet",
+    title: "Slippery When Wet — Snot a Tour",
+    caption: "A fluorescent green skull-and-bottle graphic turns a run of South African dates into a bold, DIY-style tour poster.",
+    image: "/work/tours/slippery-when-wet.jpg",
+    width: 479,
+    height: 726,
+  },
+  {
+    slug: "lionheart",
+    title: "Lionheart — South African Tour",
+    caption: "Black-and-gold tour artwork layers a dense list of South African dates and supporting acts beneath a heavy metal-inspired masthead.",
+    image: "/work/tours/lionheart-united-states.jpg",
+    width: 160,
+    height: 316,
+  },
+  {
+    slug: "lowprofile",
+    title: "Lowprofile — A Vulgar Tour",
+    caption: "A riotous comic-book illustration, bright colors and hand-lettered band names carry this two-date South African bill.",
+    image: "/work/tours/lowprofile-durban.jpg",
+    width: 678,
+    height: 960,
+  },
+  {
+    slug: "no-turning-back",
+    title: "No Turning Back — Unity Through Diversity",
+    caption: "Band photography and bold stacked typography introduce the 2009 Unity Through Diversity tour, promoted by Flag Music.",
+    image: "/work/tours/no-turning-back-netherlands.jpg",
+    width: 200,
+    height: 470,
+  },
+  {
+    slug: "peasant",
+    title: "Peasant — No Love EP Launch",
+    caption: "Distressed white type and a muted, textured backdrop frame an EP launch bill at Burnout Pub in Edenvale.",
+    image: "/work/tours/peasant-cape-town.jpg",
+    width: 678,
+    height: 960,
+  },
+  {
+    slug: "teenage-bottlerocket",
+    title: "Teenage Bottlerocket — South African Tour",
+    caption: "A colorful skull-and-floral illustration anchors the band’s 2019 South African run, with dates in Cape Town, Johannesburg and Durban.",
+    image: "/work/tours/teenage-bottlerocket.png",
+    width: 500,
+    height: 707,
+  },
+  {
+    slug: "through-this-defiance",
+    title: "Through This Defiance — South Africa",
+    caption: "A tinted live portrait and blackletter title lead this Los Angeles hardcore band’s five-date South African tour in March 2010.",
+    image: "/work/tours/through-this-defiance-united-states.jpg",
+    width: 360,
+    height: 720,
   },
 ];
 
