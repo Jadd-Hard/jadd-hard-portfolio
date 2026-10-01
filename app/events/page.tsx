@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default async function EventsPage({ searchParams }: { searchParams: Promise<{ view?: string }> }) {
   const { view } = await searchParams;
-  const activeView = view === "archives" ? "archives" : "gallery";
+  const activeView = view === "archives" ? "archives" : view === "gallery" ? "gallery" : null;
   const posters = activeView === "archives" ? archivePosters : galleryPosters;
 
   return (
@@ -22,20 +22,29 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
             Events
           </h1>
         </div>
-        <p className="events-intro max-w-sm text-base leading-relaxed text-graphite md:text-lg">
-          Tour posters and show artwork made for loud rooms, traveling lineups and live music scenes.
-        </p>
+        {activeView && (
+          <p className="events-intro max-w-sm text-base leading-relaxed text-graphite md:text-lg">
+            Tour posters and show artwork made for loud rooms, traveling lineups and live music scenes.
+          </p>
+        )}
       </header>
 
-      <div className="events-meta" aria-label={`${posters.length} posters`}>
-        <div className="flex gap-3">
-          <Link href="/events?view=gallery" className={activeView === "gallery" ? "archive-switcher-active" : ""}>Gallery</Link>
-          <Link href="/events?view=archives" className={activeView === "archives" ? "archive-switcher-active" : ""}>From the Archives</Link>
+      {activeView ? (
+        <div className="events-meta" aria-label={`${posters.length} posters`}>
+          <div className="flex gap-3">
+            <Link href="/events?view=gallery" className={activeView === "gallery" ? "archive-switcher-active" : ""}>Gallery</Link>
+            <Link href="/events?view=archives" className={activeView === "archives" ? "archive-switcher-active" : ""}>Archives</Link>
+          </div>
+          <span>{String(posters.length).padStart(2, "0")} posters</span>
         </div>
-        <span>{String(posters.length).padStart(2, "0")} posters</span>
-      </div>
+      ) : (
+        <nav className="events-choices" aria-label="Choose an events collection">
+          <Link href="/events?view=gallery">Gallery <span>↗</span></Link>
+          <Link href="/events?view=archives">Archives <span>↗</span></Link>
+        </nav>
+      )}
 
-      <div className="events-gallery columns-1 gap-x-8 sm:columns-2 xl:columns-3">
+      {activeView && <div className="events-gallery columns-1 gap-x-8 sm:columns-2 xl:columns-3">
         {posters.length === 0 ? (
           <p className="text-graphite">No posters in this section yet.</p>
         ) : posters.map((poster, index) => (
@@ -59,11 +68,11 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
             </figcaption>
           </figure>
         ))}
-      </div>
+      </div>}
 
-      <footer className="events-footer">
+      {activeView && <footer className="events-footer">
         <Link href="/work" className="nav-link">← Back to selected work</Link>
-      </footer>
+      </footer>}
     </section>
   );
 }
