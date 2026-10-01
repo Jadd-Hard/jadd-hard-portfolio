@@ -39,8 +39,26 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
         </div>
       ) : (
         <nav className="events-choices" aria-label="Choose an events collection">
-          <Link href="/events?view=gallery">Gallery <span>↗</span></Link>
-          <Link href="/events?view=archives">Archives <span>↗</span></Link>
+          <Link href="/events?view=gallery" className="events-choice-card events-choice-gallery">
+            <span className="events-choice-topline">
+              <span>Collection / 01</span>
+              <span aria-hidden="true">↗</span>
+            </span>
+            <span className="events-choice-copy">
+              <span className="events-choice-title">Gallery</span>
+              <span className="events-choice-description">Selected live artwork</span>
+            </span>
+          </Link>
+          <Link href="/events?view=archives" className="events-choice-card events-choice-archives">
+            <span className="events-choice-topline">
+              <span>Collection / 02</span>
+              <span aria-hidden="true">↗</span>
+            </span>
+            <span className="events-choice-copy">
+              <span className="events-choice-title">Archives</span>
+              <span className="events-choice-description">Posters from the vault</span>
+            </span>
+          </Link>
         </nav>
       )}
 
