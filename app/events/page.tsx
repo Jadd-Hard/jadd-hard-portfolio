@@ -24,7 +24,7 @@ export default function EventsPage() {
       </header>
 
       <div className="events-meta" aria-label={`${eventPosters.length} tour posters`}>
-        <span>Tour poster archive</span>
+        <span>Posters</span>
         <span>{String(eventPosters.length).padStart(2, "0")} posters</span>
       </div>
 
